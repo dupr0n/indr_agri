@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "17074840301",
+    "firebase_url": "https://indoor-agriculture-11f14.firebaseio.com",
+    "project_id": "indoor-agriculture-11f14",
+    "storage_bucket": "indoor-agriculture-11f14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17074840301:android:8f6ef9e384b5c66ad162e4",
+        "android_client_info": {
+          "package_name": "com.dr0hith.indr_agri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17074840301-3dmem0tnjtlomaaccf052fek5q8urr3o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dr0hith.indr_agri",
+            "certificate_hash": "e96367733577ed2fa5b61de2ad48c9d14f5cc224"
+          }
+        },
+        {
+          "client_id": "17074840301-6adjniuh6q62i4nsdnoijeipsvivtnc3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB43jrIoA8V3Os7VqhGsFui95dBhCMmkIk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17074840301-6adjniuh6q62i4nsdnoijeipsvivtnc3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
