@@ -14,6 +14,18 @@ class HomePage extends StatelessWidget {
           style: Theme.of(context).textTheme.headline3,
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: const BottomAppBar(
+        color: Colors.blue,
+        shape: CircularNotchedRectangle(),
+        child: ClipRRect(
+          child: SizedBox(height: 50),
+        ),
+      ),
     );
   }
 }

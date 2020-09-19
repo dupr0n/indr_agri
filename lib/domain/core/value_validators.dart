@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/kt.dart';
 
 import 'failures.dart';
 
@@ -20,40 +19,13 @@ Either<ValueFailure<String>, String> validateShortPassword(String input) {
   }
 }
 
-Either<ValueFailure<String>, String> validateMaxStringLength(
-  String input,
-  int maxLength,
+Either<ValueFailure<double>, double> validateMaxValue(
+  double input,
+  double maxValue,
 ) {
-  if (input.length <= maxLength) {
+  if (input <= maxValue) {
     return right(input);
   } else {
-    return left(ValueFailure.exceedingLength(failedValue: input, max: maxLength));
-  }
-}
-
-Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
-  if (input.isNotEmpty) {
-    return right(input);
-  } else {
-    return left(ValueFailure.empty(failedValue: input));
-  }
-}
-
-Either<ValueFailure<String>, String> validateSingleLine(String input) {
-  if (!input.contains('\n')) {
-    return right(input);
-  } else {
-    return left(ValueFailure.multiline(failedValue: input));
-  }
-}
-
-Either<ValueFailure<KtList<T>>, KtList<T>> validateMaxListLength<T>(
-  KtList<T> input,
-  int maxLength,
-) {
-  if (input.size <= maxLength) {
-    return right(input);
-  } else {
-    return left(ValueFailure.listTooLong(failedValue: input, max: maxLength));
+    return left(ValueFailure.exceedingLimit(failedValue: input, max: maxValue));
   }
 }
