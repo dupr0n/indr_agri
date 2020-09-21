@@ -1,8 +1,24 @@
 import 'package:dartz/dartz.dart';
-import 'package:indr_agri/domain/core/value_validators.dart';
 
 import '../core/failures.dart';
 import '../core/value_object.dart';
+import '../core/value_validators.dart';
+
+class ThumpTitle extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  static const maxLength = 30;
+
+  factory ThumpTitle(String input) {
+    assert(input != null);
+    return ThumpTitle._(validateMaxStringLength(input, maxLength)
+        .flatMap(validateStringNotEmpty)
+        .flatMap(validateSingleLine));
+  }
+
+  const ThumpTitle._(this.value);
+}
 
 class ObjTemp extends ValueObject<double> {
   @override

@@ -13,6 +13,7 @@ abstract class Thump implements _$Thump {
 
   const factory Thump({
     @required UniqueId id,
+    @required ThumpTitle title,
     @required ObjTemp objTemp,
     @required AirTemp airTemp,
     @required AirHumidity airHumidity,
@@ -21,6 +22,7 @@ abstract class Thump implements _$Thump {
 
   factory Thump.empty() => Thump(
         id: UniqueId(),
+        title: ThumpTitle('Untitled'),
         objTemp: ObjTemp(-273),
         airTemp: AirTemp(-273),
         airHumidity: AirHumidity(-1),
