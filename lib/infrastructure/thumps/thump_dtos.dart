@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:indr_agri/domain/core/value_object.dart';
-import 'package:indr_agri/domain/thumps/thump.dart';
-import 'package:indr_agri/domain/thumps/value_objects.dart';
+
+import '../../domain/core/value_object.dart';
+import '../../domain/thumps/thump.dart';
+import '../../domain/thumps/value_objects.dart';
 
 part 'thump_dtos.freezed.dart';
 part 'thump_dtos.g.dart';
@@ -12,18 +13,18 @@ abstract class ThumpDTO implements _$ThumpDTO {
 
   const factory ThumpDTO({
     String id,
-    @required String title,
     @required double objTemp,
     @required double airTemp,
     @required double airHumidity,
+    @required Map<String, double> params,
     @required bool priority,
   }) = _ThumpDTO;
 
   factory ThumpDTO.fromDomain(Thump thump) => ThumpDTO(
-        title: thump.title.getOrCrash(),
         objTemp: thump.objTemp.getOrCrash(),
         airTemp: thump.airTemp.getOrCrash(),
         airHumidity: thump.airHumidity.getOrCrash(),
+        params: thump.params.getOrCrash(),
         priority: thump.priority,
       );
 
@@ -31,10 +32,10 @@ abstract class ThumpDTO implements _$ThumpDTO {
 
   Thump toDomain() => Thump(
         id: UniqueId.fromUniqueString(id),
-        title: ThumpTitle(title),
         objTemp: ObjTemp(objTemp),
         airTemp: AirTemp(airTemp),
         airHumidity: AirHumidity(airHumidity),
+        params: Parameters(params),
         priority: priority,
       );
 }

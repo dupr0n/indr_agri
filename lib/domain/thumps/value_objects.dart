@@ -3,22 +3,7 @@ import 'package:dartz/dartz.dart';
 import '../core/failures.dart';
 import '../core/value_object.dart';
 import '../core/value_validators.dart';
-
-class ThumpTitle extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  static const maxLength = 30;
-
-  factory ThumpTitle(String input) {
-    assert(input != null);
-    return ThumpTitle._(validateMaxStringLength(input, maxLength)
-        .flatMap(validateStringNotEmpty)
-        .flatMap(validateSingleLine));
-  }
-
-  const ThumpTitle._(this.value);
-}
+import 'parameters.dart';
 
 class ObjTemp extends ValueObject<double> {
   @override
@@ -60,4 +45,19 @@ class AirHumidity extends ValueObject<double> {
   }
 
   const AirHumidity._(this.value);
+}
+
+//* Aimed to persist
+class Parameters extends ValueObject<Map<String, double>> {
+  @override
+  final Either<ValueFailure<Map<String, double>>, Map<String, double>> value;
+
+  static const Map<String, List<double>> limitValues = paramLimits;
+
+  factory Parameters(Map<String, double> input) {
+    assert(input != null);
+    return Parameters._(validateLimitValues(input, limitValues));
+  }
+
+  const Parameters._(this.value);
 }

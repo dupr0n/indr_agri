@@ -9,6 +9,24 @@ import '../../domain/thumps/thump_failure.dart';
 @LazySingleton(as: IThumpRepository)
 class ThumpRepository implements IThumpRepository {
   @override
+  Stream<Either<ThumpFailure, KtList<Thump>>> watchCurrent() {
+    // TODO: implement watchCurrent
+    throw UnimplementedError();
+  }
+
+  @override
+  Stream<Either<ThumpFailure, KtList<Thump>>> watchTemplates() {
+    // TODO: implement watchTemplates
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<ThumpFailure, Unit>> updateCurrent(Thump thump) {
+    // TODO: implement updateCurrent
+    throw UnimplementedError();
+  }
+
+  @override
   Future<Either<ThumpFailure, Unit>> create(Thump thump) {
     // TODO: implement create
     throw UnimplementedError();
@@ -23,18 +41,6 @@ class ThumpRepository implements IThumpRepository {
   @override
   Future<Either<ThumpFailure, Unit>> update(Thump thump) {
     // TODO: implement update
-    throw UnimplementedError();
-  }
-
-  @override
-  Stream<Either<ThumpFailure, KtList<Thump>>> watchAll() {
-    // TODO: implement watchAll
-    throw UnimplementedError();
-  }
-
-  @override
-  Stream<Either<ThumpFailure, KtList<Thump>>> watchPriority() {
-    // TODO: implement watchPriority
     throw UnimplementedError();
   }
 }

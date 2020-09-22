@@ -18,17 +18,17 @@ class _$ThumpDTOTearOff {
 // ignore: unused_element
   _ThumpDTO call(
       {String id,
-      @required String title,
       @required double objTemp,
       @required double airTemp,
       @required double airHumidity,
+      @required Map<String, double> params,
       @required bool priority}) {
     return _ThumpDTO(
       id: id,
-      title: title,
       objTemp: objTemp,
       airTemp: airTemp,
       airHumidity: airHumidity,
+      params: params,
       priority: priority,
     );
   }
@@ -39,10 +39,10 @@ const $ThumpDTO = _$ThumpDTOTearOff();
 
 mixin _$ThumpDTO {
   String get id;
-  String get title;
   double get objTemp;
   double get airTemp;
   double get airHumidity;
+  Map<String, double> get params;
   bool get priority;
 
   Map<String, dynamic> toJson();
@@ -54,10 +54,10 @@ abstract class $ThumpDTOCopyWith<$Res> {
       _$ThumpDTOCopyWithImpl<$Res>;
   $Res call(
       {String id,
-      String title,
       double objTemp,
       double airTemp,
       double airHumidity,
+      Map<String, double> params,
       bool priority});
 }
 
@@ -71,19 +71,19 @@ class _$ThumpDTOCopyWithImpl<$Res> implements $ThumpDTOCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
-    Object title = freezed,
     Object objTemp = freezed,
     Object airTemp = freezed,
     Object airHumidity = freezed,
+    Object params = freezed,
     Object priority = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
-      title: title == freezed ? _value.title : title as String,
       objTemp: objTemp == freezed ? _value.objTemp : objTemp as double,
       airTemp: airTemp == freezed ? _value.airTemp : airTemp as double,
       airHumidity:
           airHumidity == freezed ? _value.airHumidity : airHumidity as double,
+      params: params == freezed ? _value.params : params as Map<String, double>,
       priority: priority == freezed ? _value.priority : priority as bool,
     ));
   }
@@ -95,10 +95,10 @@ abstract class _$ThumpDTOCopyWith<$Res> implements $ThumpDTOCopyWith<$Res> {
   @override
   $Res call(
       {String id,
-      String title,
       double objTemp,
       double airTemp,
       double airHumidity,
+      Map<String, double> params,
       bool priority});
 }
 
@@ -113,19 +113,19 @@ class __$ThumpDTOCopyWithImpl<$Res> extends _$ThumpDTOCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
-    Object title = freezed,
     Object objTemp = freezed,
     Object airTemp = freezed,
     Object airHumidity = freezed,
+    Object params = freezed,
     Object priority = freezed,
   }) {
     return _then(_ThumpDTO(
       id: id == freezed ? _value.id : id as String,
-      title: title == freezed ? _value.title : title as String,
       objTemp: objTemp == freezed ? _value.objTemp : objTemp as double,
       airTemp: airTemp == freezed ? _value.airTemp : airTemp as double,
       airHumidity:
           airHumidity == freezed ? _value.airHumidity : airHumidity as double,
+      params: params == freezed ? _value.params : params as Map<String, double>,
       priority: priority == freezed ? _value.priority : priority as bool,
     ));
   }
@@ -135,15 +135,15 @@ class __$ThumpDTOCopyWithImpl<$Res> extends _$ThumpDTOCopyWithImpl<$Res>
 class _$_ThumpDTO extends _ThumpDTO {
   const _$_ThumpDTO(
       {this.id,
-      @required this.title,
       @required this.objTemp,
       @required this.airTemp,
       @required this.airHumidity,
+      @required this.params,
       @required this.priority})
-      : assert(title != null),
-        assert(objTemp != null),
+      : assert(objTemp != null),
         assert(airTemp != null),
         assert(airHumidity != null),
+        assert(params != null),
         assert(priority != null),
         super._();
 
@@ -153,19 +153,19 @@ class _$_ThumpDTO extends _ThumpDTO {
   @override
   final String id;
   @override
-  final String title;
-  @override
   final double objTemp;
   @override
   final double airTemp;
   @override
   final double airHumidity;
   @override
+  final Map<String, double> params;
+  @override
   final bool priority;
 
   @override
   String toString() {
-    return 'ThumpDTO(id: $id, title: $title, objTemp: $objTemp, airTemp: $airTemp, airHumidity: $airHumidity, priority: $priority)';
+    return 'ThumpDTO(id: $id, objTemp: $objTemp, airTemp: $airTemp, airHumidity: $airHumidity, params: $params, priority: $priority)';
   }
 
   @override
@@ -174,8 +174,6 @@ class _$_ThumpDTO extends _ThumpDTO {
         (other is _ThumpDTO &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.objTemp, objTemp) ||
                 const DeepCollectionEquality()
                     .equals(other.objTemp, objTemp)) &&
@@ -185,6 +183,8 @@ class _$_ThumpDTO extends _ThumpDTO {
             (identical(other.airHumidity, airHumidity) ||
                 const DeepCollectionEquality()
                     .equals(other.airHumidity, airHumidity)) &&
+            (identical(other.params, params) ||
+                const DeepCollectionEquality().equals(other.params, params)) &&
             (identical(other.priority, priority) ||
                 const DeepCollectionEquality()
                     .equals(other.priority, priority)));
@@ -194,10 +194,10 @@ class _$_ThumpDTO extends _ThumpDTO {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(objTemp) ^
       const DeepCollectionEquality().hash(airTemp) ^
       const DeepCollectionEquality().hash(airHumidity) ^
+      const DeepCollectionEquality().hash(params) ^
       const DeepCollectionEquality().hash(priority);
 
   @override
@@ -214,10 +214,10 @@ abstract class _ThumpDTO extends ThumpDTO {
   const _ThumpDTO._() : super._();
   const factory _ThumpDTO(
       {String id,
-      @required String title,
       @required double objTemp,
       @required double airTemp,
       @required double airHumidity,
+      @required Map<String, double> params,
       @required bool priority}) = _$_ThumpDTO;
 
   factory _ThumpDTO.fromJson(Map<String, dynamic> json) = _$_ThumpDTO.fromJson;
@@ -225,13 +225,13 @@ abstract class _ThumpDTO extends ThumpDTO {
   @override
   String get id;
   @override
-  String get title;
-  @override
   double get objTemp;
   @override
   double get airTemp;
   @override
   double get airHumidity;
+  @override
+  Map<String, double> get params;
   @override
   bool get priority;
   @override

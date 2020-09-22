@@ -19,6 +19,7 @@ Either<ValueFailure<String>, String> validateShortPassword(String input) {
   }
 }
 
+//* Aimed to be removed
 Either<ValueFailure<double>, double> validateMaxValue(
   double input,
   double maxValue,
@@ -26,33 +27,23 @@ Either<ValueFailure<double>, double> validateMaxValue(
   if (input <= maxValue) {
     return right(input);
   } else {
-    return left(ValueFailure.exceedingLimit(failedValue: input, max: maxValue));
+    return left(ValueFailure.exceedingLimit(failedValue: input, limit: maxValue));
   }
 }
 
-Either<ValueFailure<String>, String> validateMaxStringLength(
-  String input,
-  int maxLength,
+Either<ValueFailure<Map<String, double>>, Map<String, double>> validateLimitValues(
+  Map<String, double> input,
+  Map<String, List<double>> limitValues,
 ) {
-  if (input.length <= maxLength) {
-    return right(input);
-  } else {
-    return left(ValueFailure.exceedingLength(failedValue: input, max: maxLength));
-  }
-}
-
-Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
-  if (input.isNotEmpty) {
-    return right(input);
-  } else {
-    return left(ValueFailure.empty(failedValue: input));
-  }
-}
-
-Either<ValueFailure<String>, String> validateSingleLine(String input) {
-  if (!input.contains('\n')) {
-    return right(input);
-  } else {
-    return left(ValueFailure.multiline(failedValue: input));
-  }
+  limitValues.forEach((key, value) {
+    if (input.containsKey(key)) {
+      if (input[key] < value.first || input[key] > value.last) {
+        return left(ValueFailure.exceedingLimit(
+            failedValue: input, limit: input[key] < value.first ? value.first : value.last));
+      }
+    } else {
+      return left(ValueFailure.empty(failedValue: input));
+    }
+  });
+  return right(input);
 }
