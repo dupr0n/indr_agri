@@ -22,16 +22,18 @@ class AppWidget extends StatelessWidget {
           router: Router(),
         ),
         theme: ThemeData.light().copyWith(
-          primaryColor: Colors.green[800],
-          accentColor: Colors.blueAccent,
-          floatingActionButtonTheme:
-              FloatingActionButtonThemeData(backgroundColor: Colors.blue[900]),
-          inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
+            primaryColor: Colors.green[800],
+            accentColor: Colors.blueAccent,
+            floatingActionButtonTheme:
+                FloatingActionButtonThemeData(backgroundColor: Colors.blue[900]),
+            inputDecorationTheme: InputDecorationTheme(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
             ),
-          ),
-        ),
+            pageTransitionsTheme: const PageTransitionsTheme(builders: {
+              TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+            })),
       ),
     );
   }
