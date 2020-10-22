@@ -60,7 +60,8 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
         builder: (context, state) {
           final signInbloc = context.bloc<SignInFormBloc>();
           return Form(
-            autovalidate: state.showErrorMessages,
+            autovalidateMode:
+                state.showErrorMessages ? AutovalidateMode.always : AutovalidateMode.disabled,
             child: ListView(
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,

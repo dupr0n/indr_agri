@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../injection.dart';
-import '../routes/router.gr.dart';
+import '../routes/router.gr.dart' as rte;
 
 class AppWidget extends StatelessWidget {
   @override
@@ -19,7 +19,7 @@ class AppWidget extends StatelessWidget {
         title: 'Notes',
         debugShowCheckedModeBanner: false,
         builder: ExtendedNavigator(
-          router: Router(),
+          router: rte.Router(),
         ),
         theme: ThemeData.light().copyWith(
             primaryColor: Colors.green[800],
