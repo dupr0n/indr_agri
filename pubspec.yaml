@@ -34,6 +34,7 @@ dev_dependencies:
     sdk: flutter
   auto_route_generator: ^0.6.8
   build_runner: null
+  flutter_launcher_icons: ^0.8.1
   freezed: ^0.11.6
   injectable_generator: ^1.0.4
   json_serializable: ^3.4.1
@@ -54,3 +55,8 @@ flutter:
       fonts:
         - asset: assets/fonts/Roboto-Light.ttf
         - asset: assets/fonts/Roboto-ThinItalic.ttf
+
+flutter_icons:
+  image_path: 'assets/images/leaf.png'
+  android: true
+  ios: true
