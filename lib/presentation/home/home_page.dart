@@ -1,11 +1,9 @@
-// import 'dart:io';
+import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:url_launcher/url_launcher.dart';
-// import 'package:webview_flutter/platform_interface.dart';
-// import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../routes/router.gr.dart';
@@ -19,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    // if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
+    if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
 
   @override
@@ -36,57 +34,81 @@ class _HomePageState extends State<HomePage> {
         ),
       ],
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Home Page'),
+        resizeToAvoidBottomInset: true,
+        body: WebView(
+          initialUrl: "https://node-red-uvkpd-2020-08-26.eu-gb.mybluemix.net/ui/",
+          onWebViewCreated: (_) async {
+            await _showLeaf(context);
+          },
+          javascriptMode: JavascriptMode.unrestricted,
+          initialMediaPlaybackPolicy: AutoMediaPlaybackPolicy.always_allow,
+          gestureNavigationEnabled: true,
         ),
-        body: Column(
-          children: [
-            Container(
-              color: Colors.green,
-              child: Text(
-                'Successfully came to home page!',
-                style: Theme.of(context).textTheme.headline3,
-              ),
-            ),
-            const SizedBox(height: 50),
-            RaisedButton(
-              onPressed: _launchUrl,
-              child: Text(
-                "Click here to launch URL",
-                style: Theme.of(context).textTheme.headline5,
-              ),
-            ),
-          ],
-        ),
-        // body: const WebView(
-        //   initialUrl: "https://github.com/flutter/flutter/issues/730",
-        // ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => context.bloc<AuthBloc>().add(const AuthEvent.signedOut()),
-          child: const Icon(Icons.add),
+          backgroundColor: Colors.transparent,
+          onPressed: () => _showLeaf(context),
+          child: Image.asset(
+            'assets/images/leaf.png',
+            excludeFromSemantics: true,
+            height: 40,
+            width: 40,
+          ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: const BottomAppBar(
-          color: Colors.blue,
-          shape: CircularNotchedRectangle(),
+        bottomNavigationBar: BottomAppBar(
+          color: const Color(0xFF4A782E),
+          shape: const CircularNotchedRectangle(),
           child: ClipRRect(
-            child: SizedBox(height: 50),
+            child: SizedBox(
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.info_outline,
+                      color: Colors.white.withOpacity(0.85),
+                    ),
+                    iconSize: 33,
+                    onPressed: () => ExtendedNavigator.of(context).pushAboutUs(),
+                    tooltip: 'About Us',
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.exit_to_app,
+                      color: Colors.white.withOpacity(0.85),
+                    ),
+                    iconSize: 33,
+                    onPressed: () => context.bloc<AuthBloc>().add(const AuthEvent.signedOut()),
+                    tooltip: 'Log out',
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
-      // child: const WebView(
-      //   initialUrl: "https://node-red-uvkpd-2020-08-26.eu-gb.mybluemix.net/ui/",
-      //   initialMediaPlaybackPolicy: AutoMediaPlaybackPolicy.always_allow,
-      // ),
     );
   }
 }
 
-_launchUrl() async {
-  const url = "https://node-red-uvkpd-2020-08-26.eu-gb.mybluemix.net/ui/";
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
+Future<void> _showLeaf(BuildContext ctx) async {
+  await showDialog(
+    barrierColor: const Color(0xFF2E2E2E),
+    barrierDismissible: true,
+    context: ctx,
+    builder: (ctx) => Column(
+      children: [
+        const SizedBox(height: 100),
+        SizedBox(
+          width: double.infinity,
+          child: Image.asset(
+            'assets/images/leaf.png',
+            width: 200,
+            height: 200,
+          ),
+        ),
+      ],
+    ),
+  );
 }

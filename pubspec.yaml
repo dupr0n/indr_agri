@@ -52,3 +52,7 @@ flutter:
         - asset: assets/fonts/DancingScript-Medium.ttf
         - asset: assets/fonts/DancingScript-SemiBold.ttf
         - asset: assets/fonts/DancingScript-Bold.ttf
+    - family: RobotoLight
+      fonts:
+        - asset: assets/fonts/Roboto-Light.ttf
+        - asset: assets/fonts/Roboto-ThinItalic.ttf

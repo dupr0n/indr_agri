@@ -21,9 +21,10 @@ class AppWidget extends StatelessWidget {
         builder: ExtendedNavigator(
           router: rte.Router(),
         ),
-        theme: ThemeData.light().copyWith(
+        theme: ThemeData.dark().copyWith(
             primaryColor: Colors.green[800],
             accentColor: Colors.blueAccent,
+            canvasColor: const Color(0xFF151515),
             floatingActionButtonTheme:
                 FloatingActionButtonThemeData(backgroundColor: Colors.blue[900]),
             inputDecorationTheme: InputDecorationTheme(
