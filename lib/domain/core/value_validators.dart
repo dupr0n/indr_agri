@@ -18,32 +18,3 @@ Either<ValueFailure<String>, String> validateShortPassword(String input) {
     return Left(ValueFailure.shortPassword(failedValue: input));
   }
 }
-
-//* Aimed to be removed
-Either<ValueFailure<double>, double> validateMaxValue(
-  double input,
-  double maxValue,
-) {
-  if (input <= maxValue) {
-    return right(input);
-  } else {
-    return left(ValueFailure.exceedingLimit(failedValue: input, limit: maxValue));
-  }
-}
-
-Either<ValueFailure<Map<String, double>>, Map<String, double>> validateLimitValues(
-  Map<String, double> input,
-  Map<String, List<double>> limitValues,
-) {
-  limitValues.forEach((key, value) {
-    if (input.containsKey(key)) {
-      if (input[key] < value.first || input[key] > value.last) {
-        return left(ValueFailure.exceedingLimit(
-            failedValue: input, limit: input[key] < value.first ? value.first : value.last));
-      }
-    } else {
-      return left(ValueFailure.empty(failedValue: input));
-    }
-  });
-  return right(input);
-}

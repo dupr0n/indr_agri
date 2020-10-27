@@ -25,22 +25,6 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
-
-// ignore: unused_element
-  ExceedingLimit<T> exceedingLimit<T>(
-      {@required T failedValue, @required double limit}) {
-    return ExceedingLimit<T>(
-      failedValue: failedValue,
-      limit: limit,
-    );
-  }
-
-// ignore: unused_element
-  Empty<T> empty<T>({@required T failedValue}) {
-    return Empty<T>(
-      failedValue: failedValue,
-    );
-  }
 }
 
 // ignore: unused_element
@@ -53,30 +37,22 @@ mixin _$ValueFailure<T> {
   Result when<Result extends Object>({
     @required Result invalidEmail(T failedValue),
     @required Result shortPassword(T failedValue),
-    @required Result exceedingLimit(T failedValue, double limit),
-    @required Result empty(T failedValue),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(T failedValue),
     Result shortPassword(T failedValue),
-    Result exceedingLimit(T failedValue, double limit),
-    Result empty(T failedValue),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result shortPassword(ShortPassword<T> value),
-    @required Result exceedingLimit(ExceedingLimit<T> value),
-    @required Result empty(Empty<T> value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result invalidEmail(InvalidEmail<T> value),
     Result shortPassword(ShortPassword<T> value),
-    Result exceedingLimit(ExceedingLimit<T> value),
-    Result empty(Empty<T> value),
     @required Result orElse(),
   });
 
@@ -173,13 +149,9 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   Result when<Result extends Object>({
     @required Result invalidEmail(T failedValue),
     @required Result shortPassword(T failedValue),
-    @required Result exceedingLimit(T failedValue, double limit),
-    @required Result empty(T failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
-    assert(exceedingLimit != null);
-    assert(empty != null);
     return invalidEmail(failedValue);
   }
 
@@ -188,8 +160,6 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(T failedValue),
     Result shortPassword(T failedValue),
-    Result exceedingLimit(T failedValue, double limit),
-    Result empty(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -204,13 +174,9 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   Result map<Result extends Object>({
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result shortPassword(ShortPassword<T> value),
-    @required Result exceedingLimit(ExceedingLimit<T> value),
-    @required Result empty(Empty<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
-    assert(exceedingLimit != null);
-    assert(empty != null);
     return invalidEmail(this);
   }
 
@@ -219,8 +185,6 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   Result maybeMap<Result extends Object>({
     Result invalidEmail(InvalidEmail<T> value),
     Result shortPassword(ShortPassword<T> value),
-    Result exceedingLimit(ExceedingLimit<T> value),
-    Result empty(Empty<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -304,13 +268,9 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   Result when<Result extends Object>({
     @required Result invalidEmail(T failedValue),
     @required Result shortPassword(T failedValue),
-    @required Result exceedingLimit(T failedValue, double limit),
-    @required Result empty(T failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
-    assert(exceedingLimit != null);
-    assert(empty != null);
     return shortPassword(failedValue);
   }
 
@@ -319,8 +279,6 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(T failedValue),
     Result shortPassword(T failedValue),
-    Result exceedingLimit(T failedValue, double limit),
-    Result empty(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -335,13 +293,9 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   Result map<Result extends Object>({
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result shortPassword(ShortPassword<T> value),
-    @required Result exceedingLimit(ExceedingLimit<T> value),
-    @required Result empty(Empty<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
-    assert(exceedingLimit != null);
-    assert(empty != null);
     return shortPassword(this);
   }
 
@@ -350,8 +304,6 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   Result maybeMap<Result extends Object>({
     Result invalidEmail(InvalidEmail<T> value),
     Result shortPassword(ShortPassword<T> value),
-    Result exceedingLimit(ExceedingLimit<T> value),
-    Result empty(Empty<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -369,273 +321,4 @@ abstract class ShortPassword<T> implements ValueFailure<T> {
   T get failedValue;
   @override
   $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith;
-}
-
-abstract class $ExceedingLimitCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
-  factory $ExceedingLimitCopyWith(
-          ExceedingLimit<T> value, $Res Function(ExceedingLimit<T>) then) =
-      _$ExceedingLimitCopyWithImpl<T, $Res>;
-  @override
-  $Res call({T failedValue, double limit});
-}
-
-class _$ExceedingLimitCopyWithImpl<T, $Res>
-    extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $ExceedingLimitCopyWith<T, $Res> {
-  _$ExceedingLimitCopyWithImpl(
-      ExceedingLimit<T> _value, $Res Function(ExceedingLimit<T>) _then)
-      : super(_value, (v) => _then(v as ExceedingLimit<T>));
-
-  @override
-  ExceedingLimit<T> get _value => super._value as ExceedingLimit<T>;
-
-  @override
-  $Res call({
-    Object failedValue = freezed,
-    Object limit = freezed,
-  }) {
-    return _then(ExceedingLimit<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
-      limit: limit == freezed ? _value.limit : limit as double,
-    ));
-  }
-}
-
-class _$ExceedingLimit<T> implements ExceedingLimit<T> {
-  const _$ExceedingLimit({@required this.failedValue, @required this.limit})
-      : assert(failedValue != null),
-        assert(limit != null);
-
-  @override
-  final T failedValue;
-  @override
-  final double limit;
-
-  @override
-  String toString() {
-    return 'ValueFailure<$T>.exceedingLimit(failedValue: $failedValue, limit: $limit)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is ExceedingLimit<T> &&
-            (identical(other.failedValue, failedValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.failedValue, failedValue)) &&
-            (identical(other.limit, limit) ||
-                const DeepCollectionEquality().equals(other.limit, limit)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failedValue) ^
-      const DeepCollectionEquality().hash(limit);
-
-  @override
-  $ExceedingLimitCopyWith<T, ExceedingLimit<T>> get copyWith =>
-      _$ExceedingLimitCopyWithImpl<T, ExceedingLimit<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidEmail(T failedValue),
-    @required Result shortPassword(T failedValue),
-    @required Result exceedingLimit(T failedValue, double limit),
-    @required Result empty(T failedValue),
-  }) {
-    assert(invalidEmail != null);
-    assert(shortPassword != null);
-    assert(exceedingLimit != null);
-    assert(empty != null);
-    return exceedingLimit(failedValue, limit);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidEmail(T failedValue),
-    Result shortPassword(T failedValue),
-    Result exceedingLimit(T failedValue, double limit),
-    Result empty(T failedValue),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (exceedingLimit != null) {
-      return exceedingLimit(failedValue, limit);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result shortPassword(ShortPassword<T> value),
-    @required Result exceedingLimit(ExceedingLimit<T> value),
-    @required Result empty(Empty<T> value),
-  }) {
-    assert(invalidEmail != null);
-    assert(shortPassword != null);
-    assert(exceedingLimit != null);
-    assert(empty != null);
-    return exceedingLimit(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidEmail(InvalidEmail<T> value),
-    Result shortPassword(ShortPassword<T> value),
-    Result exceedingLimit(ExceedingLimit<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (exceedingLimit != null) {
-      return exceedingLimit(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ExceedingLimit<T> implements ValueFailure<T> {
-  const factory ExceedingLimit(
-      {@required T failedValue, @required double limit}) = _$ExceedingLimit<T>;
-
-  @override
-  T get failedValue;
-  double get limit;
-  @override
-  $ExceedingLimitCopyWith<T, ExceedingLimit<T>> get copyWith;
-}
-
-abstract class $EmptyCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
-  factory $EmptyCopyWith(Empty<T> value, $Res Function(Empty<T>) then) =
-      _$EmptyCopyWithImpl<T, $Res>;
-  @override
-  $Res call({T failedValue});
-}
-
-class _$EmptyCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $EmptyCopyWith<T, $Res> {
-  _$EmptyCopyWithImpl(Empty<T> _value, $Res Function(Empty<T>) _then)
-      : super(_value, (v) => _then(v as Empty<T>));
-
-  @override
-  Empty<T> get _value => super._value as Empty<T>;
-
-  @override
-  $Res call({
-    Object failedValue = freezed,
-  }) {
-    return _then(Empty<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
-    ));
-  }
-}
-
-class _$Empty<T> implements Empty<T> {
-  const _$Empty({@required this.failedValue}) : assert(failedValue != null);
-
-  @override
-  final T failedValue;
-
-  @override
-  String toString() {
-    return 'ValueFailure<$T>.empty(failedValue: $failedValue)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is Empty<T> &&
-            (identical(other.failedValue, failedValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.failedValue, failedValue)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
-
-  @override
-  $EmptyCopyWith<T, Empty<T>> get copyWith =>
-      _$EmptyCopyWithImpl<T, Empty<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidEmail(T failedValue),
-    @required Result shortPassword(T failedValue),
-    @required Result exceedingLimit(T failedValue, double limit),
-    @required Result empty(T failedValue),
-  }) {
-    assert(invalidEmail != null);
-    assert(shortPassword != null);
-    assert(exceedingLimit != null);
-    assert(empty != null);
-    return empty(failedValue);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidEmail(T failedValue),
-    Result shortPassword(T failedValue),
-    Result exceedingLimit(T failedValue, double limit),
-    Result empty(T failedValue),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (empty != null) {
-      return empty(failedValue);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result shortPassword(ShortPassword<T> value),
-    @required Result exceedingLimit(ExceedingLimit<T> value),
-    @required Result empty(Empty<T> value),
-  }) {
-    assert(invalidEmail != null);
-    assert(shortPassword != null);
-    assert(exceedingLimit != null);
-    assert(empty != null);
-    return empty(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidEmail(InvalidEmail<T> value),
-    Result shortPassword(ShortPassword<T> value),
-    Result exceedingLimit(ExceedingLimit<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (empty != null) {
-      return empty(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Empty<T> implements ValueFailure<T> {
-  const factory Empty({@required T failedValue}) = _$Empty<T>;
-
-  @override
-  T get failedValue;
-  @override
-  $EmptyCopyWith<T, Empty<T>> get copyWith;
 }

@@ -10,11 +10,4 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.shortPassword({
     @required T failedValue,
   }) = ShortPassword<T>;
-  const factory ValueFailure.exceedingLimit({
-    @required T failedValue,
-    @required double limit,
-  }) = ExceedingLimit<T>;
-  const factory ValueFailure.empty({
-    @required T failedValue,
-  }) = Empty<T>;
 }
