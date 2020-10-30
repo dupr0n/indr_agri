@@ -1,4 +1,4 @@
-# indr_agri
+# AgrIndoor 2.0
 
 A new Flutter project.
 
