@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
-import '../routes/router.gr.dart';
+import '../routes/router.gr.dart' as rte;
 
 class AboutUs extends StatelessWidget {
   @override
@@ -11,7 +11,8 @@ class AboutUs extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         state.maybeMap(
-          unauthenticated: (_) => ExtendedNavigator.of(context).replace(Routes.signInPage),
+          unauthenticated: (_) async =>
+              await ExtendedNavigator.of(context)?.replace(const rte.SignInPageRoute().path),
           orElse: () {},
         );
       },
@@ -26,7 +27,7 @@ class AboutUs extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.arrow_back_ios),
                     tooltip: 'Go Back',
-                    onPressed: () => ExtendedNavigator.of(context).pop(),
+                    onPressed: () => ExtendedNavigator.of(context)?.pop(),
                   ),
                   const Text(
                     'About Us',

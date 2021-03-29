@@ -1,15 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 
-import './firebase_user_mapper.dart';
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/user.dart';
 import '../../domain/auth/value_objects.dart';
+import 'firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
@@ -23,8 +22,8 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
-    @required EmailAddress emailAddress,
-    @required Password password,
+    required EmailAddress emailAddress,
+    required Password password,
   }) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = emailAddress.getOrCrash();
@@ -45,8 +44,8 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
-    @required EmailAddress emailAddress,
-    @required Password password,
+    required EmailAddress emailAddress,
+    required Password password,
   }) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = emailAddress.getOrCrash();

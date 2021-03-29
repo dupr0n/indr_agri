@@ -4,78 +4,61 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-// ignore_for_file: public_member_api_docs
+import 'package:auto_route/auto_route.dart' as _i1;
 
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import '../about/about_us.dart' as _i5;
+import '../home/home_page.dart' as _i4;
+import '../sign_in/sign_in_page.dart' as _i3;
+import '../splash/splash_page.dart' as _i2;
 
-import '../about/about_us.dart';
-import '../home/home_page.dart';
-import '../sign_in/sign_in_page.dart';
-import '../splash/splash_page.dart';
+class Router extends _i1.RootStackRouter {
+  Router();
 
-class Routes {
-  static const String splashPage = '/';
-  static const String signInPage = '/sign-in-page';
-  static const String homePage = '/home-page';
-  static const String aboutUs = '/about-us';
-  static const all = <String>{
-    splashPage,
-    signInPage,
-    homePage,
-    aboutUs,
+  @override
+  final Map<String, _i1.PageFactory> pagesMap = {
+    SplashPageRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i2.SplashPage());
+    },
+    SignInPageRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i3.SignInPage());
+    },
+    HomePageRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i4.HomePage());
+    },
+    AboutUsRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i5.AboutUs());
+    }
   };
+
+  @override
+  List<_i1.RouteConfig> get routes => [
+        _i1.RouteConfig(SplashPageRoute.name, path: '/'),
+        _i1.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
+        _i1.RouteConfig(HomePageRoute.name, path: '/home-page'),
+        _i1.RouteConfig(AboutUsRoute.name, path: '/about-us')
+      ];
 }
 
-class Router extends RouterBase {
-  @override
-  List<RouteDef> get routes => _routes;
-  final _routes = <RouteDef>[
-    RouteDef(Routes.splashPage, page: SplashPage),
-    RouteDef(Routes.signInPage, page: SignInPage),
-    RouteDef(Routes.homePage, page: HomePage),
-    RouteDef(Routes.aboutUs, page: AboutUs),
-  ];
-  @override
-  Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
-  final _pagesMap = <Type, AutoRouteFactory>{
-    SplashPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => SplashPage(),
-        settings: data,
-      );
-    },
-    SignInPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => SignInPage(),
-        settings: data,
-      );
-    },
-    HomePage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => HomePage(),
-        settings: data,
-      );
-    },
-    AboutUs: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => AboutUs(),
-        settings: data,
-      );
-    },
-  };
+class SplashPageRoute extends _i1.PageRouteInfo {
+  const SplashPageRoute() : super(name, path: '/');
+
+  static const String name = 'SplashPageRoute';
 }
 
-/// ************************************************************************
-/// Navigation helper methods extension
-/// *************************************************************************
+class SignInPageRoute extends _i1.PageRouteInfo {
+  const SignInPageRoute() : super(name, path: '/sign-in-page');
 
-extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
-  Future<dynamic> pushSplashPage() => push<dynamic>(Routes.splashPage);
+  static const String name = 'SignInPageRoute';
+}
 
-  Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
+class HomePageRoute extends _i1.PageRouteInfo {
+  const HomePageRoute() : super(name, path: '/home-page');
 
-  Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
+  static const String name = 'HomePageRoute';
+}
 
-  Future<dynamic> pushAboutUs() => push<dynamic>(Routes.aboutUs);
+class AboutUsRoute extends _i1.PageRouteInfo {
+  const AboutUsRoute() : super(name, path: '/about-us');
+
+  static const String name = 'AboutUsRoute';
 }

@@ -6,7 +6,6 @@ import '../core/value_validators.dart';
 
 class EmailAddress extends ValueObject<String> {
   factory EmailAddress(String input) {
-    assert(input != null);
     return EmailAddress._(validateEmailAddress(input));
   }
 
@@ -17,7 +16,6 @@ class EmailAddress extends ValueObject<String> {
 
 class Password extends ValueObject<String> {
   factory Password(String input) {
-    assert(input != null);
     return Password._(validateShortPassword(input));
   }
 

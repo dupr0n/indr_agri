@@ -1,11 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
-import '../../routes/router.gr.dart';
+import '../../routes/router.gr.dart' as rt;
 
 class SignInForm extends StatefulWidget {
   @override
@@ -15,18 +14,23 @@ class SignInForm extends StatefulWidget {
 class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
   static const animationTime = 3;
   static const transitionTime = 1;
-  AnimationController _startController, _transitionController;
-  Animation<double> _leaf;
-  Animation<double> _title, _email, _password, _signIn, _register, _google;
+  AnimationController? _startController, _transitionController;
+  Animation<double> _leaf = ProxyAnimation();
+  Animation<double> _title = ProxyAnimation(),
+      _email = ProxyAnimation(),
+      _password = ProxyAnimation(),
+      _signIn = ProxyAnimation(),
+      _register = ProxyAnimation(),
+      _google = ProxyAnimation();
   List<double> td = [0.2, 0.35, 0.5, 0.65, 0.75, 0.85, 1.0];
 
   Animation<double> fadeInterval(double start, double end) =>
       Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-        parent: _startController,
+        parent: _startController!,
         curve: Interval(start, end),
       ));
   Animation<double> fade(double start, double end) =>
-      Tween<double>(begin: start, end: end).animate(_transitionController);
+      Tween<double>(begin: start, end: end).animate(_transitionController!);
 
   @override
   Future<void> didChangeDependencies() async {
@@ -49,16 +53,16 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
     _signIn = fadeInterval(td[3], td[4]);
     _register = fadeInterval(td[4], td[5]);
     _google = fadeInterval(td[5], td[6]);
-    _startController.forward();
+    _startController?.forward();
   }
 
   @override
   Widget build(BuildContext context) {
     return Opacity(
-      opacity: _leaf == null ? 1.0 : _leaf.value,
+      opacity: _leaf.value,
       child: BlocConsumer<SignInFormBloc, SignInFormState>(
         builder: (context, state) {
-          final signInbloc = context.bloc<SignInFormBloc>();
+          final signInbloc = context.watch<SignInFormBloc>();
           return Form(
             autovalidateMode:
                 state.showErrorMessages ? AutovalidateMode.always : AutovalidateMode.disabled,
@@ -126,7 +130,7 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
                     Expanded(
                       child: Opacity(
                         opacity: _signIn.value,
-                        child: FlatButton(
+                        child: TextButton(
                           onPressed: () => signInbloc
                               .add(const SignInFormEvent.signInWithEmailAndPasswordPressed()),
                           child: const Text('SIGN IN'),
@@ -136,7 +140,7 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
                     Expanded(
                       child: Opacity(
                         opacity: _register.value,
-                        child: FlatButton(
+                        child: TextButton(
                           onPressed: () => signInbloc
                               .add(const SignInFormEvent.registerWithEmailAndPasswordPressed()),
                           child: const Text('REGISTER'),
@@ -147,10 +151,10 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
                 ),
                 Opacity(
                   opacity: _google.value,
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: () =>
                         signInbloc.add(const SignInFormEvent.signInWithGooglePressed()),
-                    color: Colors.lightBlue,
+                    // color: Colors.lightBlue,
                     child: const Text(
                       'SIGN IN WITH GOOGLE',
                       style: TextStyle(
@@ -170,21 +174,21 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
             () {},
             (either) => either.fold(
               (failure) {
-                FlushbarHelper.createError(
-                  message: failure.map(
-                    cancelledByUser: (_) => 'Cancelled',
-                    serverError: (_) => 'Server Error',
-                    emailAlreadyInUse: (_) => 'Email already in use',
-                    invalidEmailAndPassword: (_) => 'Invalid email and/or password',
-                  ),
-                ).show(context);
+                // FlushbarHelper.createError(
+                //   message: failure.map(
+                //     cancelledByUser: (_) => 'Cancelled',
+                //     serverError: (_) => 'Server Error',
+                //     emailAlreadyInUse: (_) => 'Email already in use',
+                //     invalidEmailAndPassword: (_) => 'Invalid email and/or password',
+                //   ),
+                // ).show(context);
               },
               (_) async {
-                _leaf = Tween<double>(begin: 1.0, end: 0.0).animate(_transitionController);
-                _transitionController.forward();
+                _leaf = Tween<double>(begin: 1.0, end: 0.0).animate(_transitionController!);
+                _transitionController?.forward();
                 await Future.delayed(const Duration(milliseconds: 1000 * transitionTime + 250));
-                ExtendedNavigator.of(context).replace(Routes.homePage);
-                context.bloc<AuthBloc>().add(const AuthEvent.authCheckRequested());
+                ExtendedNavigator.of(context)?.replace(const rt.HomePageRoute().path);
+                context.watch<AuthBloc>().add(const AuthEvent.authCheckRequested());
               },
             ),
           );
@@ -195,8 +199,8 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    _startController.dispose();
-    _transitionController.dispose();
+    _startController?.dispose();
+    _transitionController?.dispose();
     super.dispose();
   }
 }

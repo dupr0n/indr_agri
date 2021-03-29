@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
-import '../routes/router.gr.dart';
+import '../routes/router.gr.dart' as rte;
 
 class SplashPage extends StatefulWidget {
   @override
@@ -11,8 +11,8 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _growanimation, _position;
+  AnimationController? _controller;
+  Animation<double> _growanimation = ProxyAnimation(), _position = ProxyAnimation();
 
   @override
   Future<void> didChangeDependencies() async {
@@ -24,15 +24,15 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
         setState(() {});
       });
     _growanimation = Tween<double>(begin: 0, end: 200).animate(CurvedAnimation(
-      parent: _controller,
+      parent: _controller!,
       curve: const Interval(0.0, 0.8, curve: Curves.decelerate),
     ));
     _position = Tween<double>(begin: MediaQuery.of(context).size.height / 2.2, end: 100)
         .animate(CurvedAnimation(
-      parent: _controller,
+      parent: _controller!,
       curve: const Interval(0.3, 1.0, curve: Curves.easeInOut),
     ));
-    await _controller.forward();
+    await _controller?.forward();
   }
 
   @override
@@ -42,12 +42,12 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
         state.map(
           initial: (_) {},
           authenticated: (_) async {
-            await Future.delayed(const Duration(seconds: 3));
-            ExtendedNavigator.of(context).replace(Routes.homePage);
+            // await Future.delayed(const Duration(seconds: 3));
+            await ExtendedNavigator.of(context)?.replace(const rte.HomePageRoute().path);
           },
           unauthenticated: (_) async {
-            await Future.delayed(const Duration(seconds: 3));
-            ExtendedNavigator.of(context).replace(Routes.signInPage);
+            // await Future.delayed(const Duration(seconds: 3));
+            await ExtendedNavigator.of(context)?.replace(const rte.SignInPageRoute().path);
           },
         );
       },
@@ -71,7 +71,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 }

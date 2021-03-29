@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../application/auth/auth_bloc.dart';
-import '../routes/router.gr.dart';
+import '../routes/router.gr.dart' as rte;
 
 class HomePage extends StatefulWidget {
   @override
@@ -27,7 +27,8 @@ class _HomePageState extends State<HomePage> {
         BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {
             state.maybeMap(
-              unauthenticated: (_) => ExtendedNavigator.of(context).replace(Routes.signInPage),
+              unauthenticated: (_) async =>
+                  await ExtendedNavigator.of(context)?.replace(const rte.SignInPageRoute().path),
               orElse: () {},
             );
           },
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         body: WebView(
-          initialUrl: "https://node-red-uvkpd-2020-08-26.eu-gb.mybluemix.net/ui/",
+          initialUrl: "https://node-red-zjjxy-2021-02-25.eu-gb.mybluemix.net/ui/",
           onWebViewCreated: (_) async {
             await _showLeaf(context);
           },
@@ -70,7 +71,8 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.white.withOpacity(0.85),
                     ),
                     iconSize: 33,
-                    onPressed: () => ExtendedNavigator.of(context).pushAboutUs(),
+                    onPressed: () async =>
+                        await ExtendedNavigator.of(context)?.push(const rte.AboutUsRoute().path),
                     tooltip: 'About Us',
                   ),
                   IconButton(
@@ -79,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.white.withOpacity(0.85),
                     ),
                     iconSize: 33,
-                    onPressed: () => context.bloc<AuthBloc>().add(const AuthEvent.signedOut()),
+                    onPressed: () => context.watch<AuthBloc>().add(const AuthEvent.signedOut()),
                     tooltip: 'Log out',
                   ),
                 ],

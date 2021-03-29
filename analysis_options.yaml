@@ -7,3 +7,7 @@ analyzer:
     must_be_immutable: error
     sort_unnamed_constructors_first: ignore
     directives_ordering: ignore
+
+linter:
+  rules:
+    sort_pub_dependencies: false

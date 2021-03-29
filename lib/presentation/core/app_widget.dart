@@ -1,10 +1,10 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:indr_agri/presentation/splash/splash_page.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../injection.dart';
-import '../routes/router.gr.dart' as rte;
+import '../sign_in/sign_in_page.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -18,9 +18,16 @@ class AppWidget extends StatelessWidget {
       child: MaterialApp(
         title: 'Notes',
         debugShowCheckedModeBanner: false,
-        builder: ExtendedNavigator(
-          router: rte.Router(),
-        ),
+        // builder: ExtendedNavigator.builder(
+        //   router: rte.Router(),
+        // ),
+
+        // onGenerateRoute: (settings) {
+        //   Navigator.pushNamed(context, settings.name ?? '/');
+        // },
+        // routes: rte.Router().pagesMap,
+        // initialRoute: const rte.HomePageRoute().path,
+        home: SplashPage(),
         theme: ThemeData.dark().copyWith(
             primaryColor: Colors.green[800],
             accentColor: Colors.blueAccent,

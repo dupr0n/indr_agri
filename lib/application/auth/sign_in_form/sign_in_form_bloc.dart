@@ -59,11 +59,11 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
   Stream<SignInFormState> _useEmailAndPassword(
       Future<Either<AuthFailure, Unit>> Function({
-    @required EmailAddress emailAddress,
-    @required Password password,
+    required EmailAddress emailAddress,
+    required Password password,
   })
           forwardedCall) async* {
-    Either<AuthFailure, Unit> failureOrSuccess;
+    Either<AuthFailure, Unit> failureOrSuccess = right(unit);
     if (state.emailAddress.isValid() && state.password.isValid()) {
       yield state.copyWith(
         isSubmitting: true,
