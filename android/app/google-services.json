@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "17074840301-tq95huvfprc3bbnems9ce9mkrn738l9l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dr0hith.indr_agri",
+            "certificate_hash": "1d85b4b1cdb69480af644598240ab2fe24e07d61"
+          }
+        },
+        {
           "client_id": "17074840301-6adjniuh6q62i4nsdnoijeipsvivtnc3.apps.googleusercontent.com",
           "client_type": 3
         }

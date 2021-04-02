@@ -1,10 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
-import '../../routes/router.gr.dart' as rt;
+import '../../routes/router.gr.dart' as rte;
 
 class SignInForm extends StatefulWidget {
   @override
@@ -33,8 +32,8 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
       Tween<double>(begin: start, end: end).animate(_transitionController!);
 
   @override
-  Future<void> didChangeDependencies() async {
-    super.didChangeDependencies();
+  void initState() {
+    super.initState();
     _startController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: animationTime),
@@ -53,13 +52,13 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
     _signIn = fadeInterval(td[3], td[4]);
     _register = fadeInterval(td[4], td[5]);
     _google = fadeInterval(td[5], td[6]);
-    _startController?.forward();
+    _startController!.forward();
   }
 
   @override
   Widget build(BuildContext context) {
     return Opacity(
-      opacity: _leaf.value,
+      opacity: _leaf.value == 0 ? 1 : _leaf.value,
       child: BlocConsumer<SignInFormBloc, SignInFormState>(
         builder: (context, state) {
           final signInbloc = context.watch<SignInFormBloc>();
@@ -174,21 +173,23 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
             () {},
             (either) => either.fold(
               (failure) {
-                // FlushbarHelper.createError(
-                //   message: failure.map(
-                //     cancelledByUser: (_) => 'Cancelled',
-                //     serverError: (_) => 'Server Error',
-                //     emailAlreadyInUse: (_) => 'Email already in use',
-                //     invalidEmailAndPassword: (_) => 'Invalid email and/or password',
-                //   ),
-                // ).show(context);
+                final message = failure.map(
+                  cancelledByUser: (_) => 'Cancelled',
+                  serverError: (_) => 'Server Error',
+                  emailAlreadyInUse: (_) => 'Email already in use',
+                  invalidEmailAndPassword: (_) => 'Invalid email and/or password',
+                );
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(message)),
+                );
               },
               (_) async {
                 _leaf = Tween<double>(begin: 1.0, end: 0.0).animate(_transitionController!);
-                _transitionController?.forward();
-                await Future.delayed(const Duration(milliseconds: 1000 * transitionTime + 250));
-                ExtendedNavigator.of(context)?.replace(const rt.HomePageRoute().path);
-                context.watch<AuthBloc>().add(const AuthEvent.authCheckRequested());
+                await _transitionController?.forward();
+                // await Future.delayed(const Duration(milliseconds: 1000 * transitionTime + 250));
+                await Navigator.of(context).pushReplacementNamed(const rte.HomePageRoute().path);
+                BlocProvider.of<AuthBloc>(context, listen: false)
+                    .add(const AuthEvent.authCheckRequested());
               },
             ),
           );

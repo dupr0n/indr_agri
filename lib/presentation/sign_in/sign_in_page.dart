@@ -6,6 +6,8 @@ import '../../injection.dart';
 import 'widgets/sign_in_form.dart';
 
 class SignInPage extends StatelessWidget {
+  const SignInPage();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,11 +5,13 @@ import '../../application/auth/auth_bloc.dart';
 import '../routes/router.gr.dart' as rte;
 
 class SplashPage extends StatefulWidget {
+  const SplashPage();
+
   @override
   _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin {
+class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   AnimationController? _controller;
   Animation<double> _growanimation = ProxyAnimation(), _position = ProxyAnimation();
 
@@ -42,12 +43,14 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
         state.map(
           initial: (_) {},
           authenticated: (_) async {
-            // await Future.delayed(const Duration(seconds: 3));
-            await ExtendedNavigator.of(context)?.replace(const rte.HomePageRoute().path);
+            await Future.delayed(const Duration(seconds: 3));
+            await Navigator.of(context).pushReplacementNamed(const rte.HomePageRoute().path);
+            // await ExtendedNavigator.of(context)?.replace(const rte.HomePageRoute().path);
           },
           unauthenticated: (_) async {
-            // await Future.delayed(const Duration(seconds: 3));
-            await ExtendedNavigator.of(context)?.replace(const rte.SignInPageRoute().path);
+            await Future.delayed(const Duration(seconds: 3));
+            await Navigator.of(context).pushReplacementNamed(const rte.SignInPageRoute().path);
+            // await ExtendedNavigator.of(context)?.replace(const rte.SignInPageRoute().path);
           },
         );
       },
