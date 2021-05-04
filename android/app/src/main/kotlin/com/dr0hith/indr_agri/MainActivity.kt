@@ -1,4 +1,4 @@
-package com.example.indr_agri
+package com.dr0hith.indr_agri
 
 import io.flutter.embedding.android.FlutterActivity
 

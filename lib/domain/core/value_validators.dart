@@ -18,3 +18,15 @@ Either<ValueFailure<String>, String> validateShortPassword(String input) {
     return Left(ValueFailure.shortPassword(failedValue: input));
   }
 }
+
+Either<ValueFailure<double>, double> validateLimit(
+  double input, {
+  double max = double.infinity,
+  double min = double.negativeInfinity,
+}) {
+  if (input > min && input < max) {
+    return Right(input);
+  } else {
+    return Left(ValueFailure.shortPassword(failedValue: input));
+  }
+}

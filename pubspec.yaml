@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   auto_route: ^1.0.2
+  cloud_firestore: ^1.0.2
   cupertino_icons: ^1.0.2
   dartz: 0.10.0-nullsafety.1
   firebase_auth: ^1.0.1
@@ -42,6 +43,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/leaf.png
+    - assets/images/indr_agri.jpg
   fonts:
     - family: DancingScript
       fonts:

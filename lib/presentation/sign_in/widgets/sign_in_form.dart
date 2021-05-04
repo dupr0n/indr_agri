@@ -80,9 +80,12 @@ class _SignInFormState extends State<SignInForm> with TickerProviderStateMixin {
                   ),
                 ),
                 const SizedBox(height: 16),
-                Image.asset(
-                  'assets/images/leaf.png',
-                  height: 200,
+                Hero(
+                  tag: 'leaf',
+                  child: Image.asset(
+                    'assets/images/leaf.png',
+                    height: 200,
+                  ),
                 ),
                 const SizedBox(height: 35),
                 Opacity(

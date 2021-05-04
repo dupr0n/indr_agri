@@ -60,10 +60,13 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             SizedBox(height: _position.value),
             SizedBox(
               width: double.infinity,
-              child: Image.asset(
-                'assets/images/leaf.png',
-                width: _growanimation.value,
-                height: _growanimation.value,
+              child: Hero(
+                tag: 'leaf',
+                child: Image.asset(
+                  'assets/images/leaf.png',
+                  width: _growanimation.value,
+                  height: _growanimation.value,
+                ),
               ),
             ),
           ],

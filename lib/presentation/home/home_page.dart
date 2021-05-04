@@ -131,12 +131,12 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Image.asset(
-                            "assets/images/leaf.png",
-                            width: 64,
-                            height: 64,
+                            "assets/images/indr_agri.jpg",
+                            width: 200,
+                            height: 120,
                           ),
                           const Padding(
-                            padding: EdgeInsets.only(top: 22),
+                            padding: EdgeInsets.only(top: 5),
                             child: Text(
                               "AgrIndoor",
                               style: TextStyle(

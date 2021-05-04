@@ -38,10 +38,13 @@ class AboutUs extends StatelessWidget {
               ),
               SizedBox(
                 width: double.infinity,
-                child: Image.asset(
-                  'assets/images/leaf.png',
-                  width: 200,
-                  height: 200,
+                child: Hero(
+                  tag: 'leaf',
+                  child: Image.asset(
+                    'assets/images/leaf.png',
+                    width: 200,
+                    height: 200,
+                  ),
                 ),
               ),
               const SizedBox(height: 50),
