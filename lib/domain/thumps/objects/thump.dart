@@ -8,13 +8,13 @@ import '../value_objects.dart';
 part 'thump.freezed.dart';
 
 @freezed
-abstract class AirTempObj with _$AirTempObj {
+class AirTempObj with _$AirTempObj {
   const AirTempObj._();
 
   const factory AirTempObj({
     @required UniqueId? id,
     @required AirTemp? value,
-    @required DateTime? dateTime,
+    @required DateTime? time,
   }) = _AirTempObj;
 
   Option<ValueFailure<dynamic>> get failureOption => (value ?? AirTemp(-100)).failureOrUnit.fold(
@@ -24,13 +24,13 @@ abstract class AirTempObj with _$AirTempObj {
 }
 
 @freezed
-abstract class HumidityObj with _$HumidityObj {
+class HumidityObj with _$HumidityObj {
   const HumidityObj._();
 
   const factory HumidityObj({
     @required UniqueId? id,
     @required Humidity? value,
-    @required DateTime? dateTime,
+    @required DateTime? time,
   }) = _HumidityObj;
 
   Option<ValueFailure<dynamic>> get failureOption => (value ?? Humidity(-1)).failureOrUnit.fold(
@@ -40,13 +40,13 @@ abstract class HumidityObj with _$HumidityObj {
 }
 
 @freezed
-abstract class IntensityObj with _$IntensityObj {
+class IntensityObj with _$IntensityObj {
   const IntensityObj._();
 
   const factory IntensityObj({
     @required UniqueId? id,
     @required Intensity? value,
-    @required DateTime? dateTime,
+    @required DateTime? time,
   }) = _IntensityObj;
 
   Option<ValueFailure<dynamic>> get failureOption => (value ?? Intensity(-1)).failureOrUnit.fold(
@@ -56,13 +56,13 @@ abstract class IntensityObj with _$IntensityObj {
 }
 
 @freezed
-abstract class ObjTempObj with _$ObjTempObj {
+class ObjTempObj with _$ObjTempObj {
   const ObjTempObj._();
 
   const factory ObjTempObj({
     @required UniqueId? id,
     @required ObjTemp? value,
-    @required DateTime? dateTime,
+    @required DateTime? time,
   }) = _ObjTempObj;
 
   Option<ValueFailure<dynamic>> get failureOption => (value ?? ObjTemp(300)).failureOrUnit.fold(
@@ -72,13 +72,13 @@ abstract class ObjTempObj with _$ObjTempObj {
 }
 
 @freezed
-abstract class PhLevelObj with _$PhLevelObj {
+class PhLevelObj with _$PhLevelObj {
   const PhLevelObj._();
 
   const factory PhLevelObj({
     @required UniqueId? id,
     @required PhLevel? value,
-    @required DateTime? dateTime,
+    @required DateTime? time,
   }) = _PhLevelObj;
 
   Option<ValueFailure<dynamic>> get failureOption => (value ?? PhLevel(-1)).failureOrUnit.fold(

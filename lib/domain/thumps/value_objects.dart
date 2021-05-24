@@ -10,7 +10,7 @@ class AirTemp extends ValueObject {
   }
 
   @override
-  final Either<ValueFailure, dynamic> value;
+  final Either<ValueFailure, double> value;
   const AirTemp._(this.value);
 }
 
@@ -20,7 +20,7 @@ class Humidity extends ValueObject {
   }
 
   @override
-  final Either<ValueFailure, dynamic> value;
+  final Either<ValueFailure, double> value;
   const Humidity._(this.value);
 }
 
@@ -30,7 +30,7 @@ class Intensity extends ValueObject {
   }
 
   @override
-  final Either<ValueFailure, dynamic> value;
+  final Either<ValueFailure, double> value;
   const Intensity._(this.value);
 }
 
@@ -40,7 +40,7 @@ class ObjTemp extends ValueObject {
   }
 
   @override
-  final Either<ValueFailure, dynamic> value;
+  final Either<ValueFailure, double> value;
   const ObjTemp._(this.value);
 }
 
@@ -50,6 +50,6 @@ class PhLevel extends ValueObject {
   }
 
   @override
-  final Either<ValueFailure, dynamic> value;
+  final Either<ValueFailure, double> value;
   const PhLevel._(this.value);
 }

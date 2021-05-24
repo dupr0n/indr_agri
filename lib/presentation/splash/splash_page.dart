@@ -45,12 +45,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
           authenticated: (_) async {
             await Future.delayed(const Duration(seconds: 3));
             await Navigator.of(context).pushReplacementNamed(const rte.HomePageRoute().path);
-            // await ExtendedNavigator.of(context)?.replace(const rte.HomePageRoute().path);
           },
           unauthenticated: (_) async {
             await Future.delayed(const Duration(seconds: 3));
-            await Navigator.of(context).pushReplacementNamed(const rte.SignInPageRoute().path);
-            // await ExtendedNavigator.of(context)?.replace(const rte.SignInPageRoute().path);
+            await Navigator.of(context).pushReplacementNamed(const rte.HomePageRoute().path);
+            // await Navigator.of(context).pushReplacementNamed(const rte.SignInPageRoute().path);
           },
         );
       },

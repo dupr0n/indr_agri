@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 extension FirestoreX on FirebaseFirestore {
-  CollectionReference get airTempCollection => collection('Air_Temperature');
+  CollectionReference get airTempCollection => collection('AirTemperature');
   CollectionReference get humidityCollection => collection('Humidity');
   CollectionReference get intensityCollection => collection('Intensity');
-  CollectionReference get objTempCollection => collection('Object_Temperature');
-  CollectionReference get pHLevelCollection => collection('pH_Level');
+  CollectionReference get objTempCollection => collection('ObjectTemperature');
+  CollectionReference get pHLevelCollection => collection('PhLevel');
 }

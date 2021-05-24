@@ -73,6 +73,8 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         emailAddress: state.emailAddress,
         password: state.password,
       );
+    } else {
+      failureOrSuccess = left(const AuthFailure.invalidEmailAndPassword());
     }
     yield state.copyWith(
       isSubmitting: false,

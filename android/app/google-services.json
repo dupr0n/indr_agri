@@ -8,18 +8,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:17074840301:android:9e55e4f3c500c4e9d162e4",
+        "mobilesdk_app_id": "1:17074840301:android:495e20352d1975d2d162e4",
         "android_client_info": {
           "package_name": "com.dr0hith.indr_agri"
         }
       },
       "oauth_client": [
         {
-          "client_id": "17074840301-tq95huvfprc3bbnems9ce9mkrn738l9l.apps.googleusercontent.com",
+          "client_id": "17074840301-ec3l18b8ta0kls0u1dpqnqp2vvub7107.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.dr0hith.indr_agri",
-            "certificate_hash": "1d85b4b1cdb69480af644598240ab2fe24e07d61"
+            "certificate_hash": "d8359e83bb80c62f3a38d9f69e89682e0bec8ec6"
           }
         },
         {

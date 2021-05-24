@@ -16,11 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AirTempObjTearOff {
   const _$AirTempObjTearOff();
 
-  _AirTempObj call({UniqueId? id, AirTemp? value, DateTime? dateTime}) {
+  _AirTempObj call({UniqueId? id, AirTemp? value, DateTime? time}) {
     return _AirTempObj(
       id: id,
       value: value,
-      dateTime: dateTime,
+      time: time,
     );
   }
 }
@@ -32,7 +32,7 @@ const $AirTempObj = _$AirTempObjTearOff();
 mixin _$AirTempObj {
   UniqueId? get id => throw _privateConstructorUsedError;
   AirTemp? get value => throw _privateConstructorUsedError;
-  DateTime? get dateTime => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AirTempObjCopyWith<AirTempObj> get copyWith =>
@@ -44,7 +44,7 @@ abstract class $AirTempObjCopyWith<$Res> {
   factory $AirTempObjCopyWith(
           AirTempObj value, $Res Function(AirTempObj) then) =
       _$AirTempObjCopyWithImpl<$Res>;
-  $Res call({UniqueId? id, AirTemp? value, DateTime? dateTime});
+  $Res call({UniqueId? id, AirTemp? value, DateTime? time});
 }
 
 /// @nodoc
@@ -59,7 +59,7 @@ class _$AirTempObjCopyWithImpl<$Res> implements $AirTempObjCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
-    Object? dateTime = freezed,
+    Object? time = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -70,9 +70,9 @@ class _$AirTempObjCopyWithImpl<$Res> implements $AirTempObjCopyWith<$Res> {
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as AirTemp?,
-      dateTime: dateTime == freezed
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
   }
@@ -84,7 +84,7 @@ abstract class _$AirTempObjCopyWith<$Res> implements $AirTempObjCopyWith<$Res> {
           _AirTempObj value, $Res Function(_AirTempObj) then) =
       __$AirTempObjCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId? id, AirTemp? value, DateTime? dateTime});
+  $Res call({UniqueId? id, AirTemp? value, DateTime? time});
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class __$AirTempObjCopyWithImpl<$Res> extends _$AirTempObjCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
-    Object? dateTime = freezed,
+    Object? time = freezed,
   }) {
     return _then(_AirTempObj(
       id: id == freezed
@@ -112,9 +112,9 @@ class __$AirTempObjCopyWithImpl<$Res> extends _$AirTempObjCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as AirTemp?,
-      dateTime: dateTime == freezed
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
   }
@@ -122,18 +122,18 @@ class __$AirTempObjCopyWithImpl<$Res> extends _$AirTempObjCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_AirTempObj extends _AirTempObj {
-  const _$_AirTempObj({this.id, this.value, this.dateTime}) : super._();
+  const _$_AirTempObj({this.id, this.value, this.time}) : super._();
 
   @override
   final UniqueId? id;
   @override
   final AirTemp? value;
   @override
-  final DateTime? dateTime;
+  final DateTime? time;
 
   @override
   String toString() {
-    return 'AirTempObj(id: $id, value: $value, dateTime: $dateTime)';
+    return 'AirTempObj(id: $id, value: $value, time: $time)';
   }
 
   @override
@@ -144,9 +144,8 @@ class _$_AirTempObj extends _AirTempObj {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
-            (identical(other.dateTime, dateTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateTime, dateTime)));
+            (identical(other.time, time) ||
+                const DeepCollectionEquality().equals(other.time, time)));
   }
 
   @override
@@ -154,7 +153,7 @@ class _$_AirTempObj extends _AirTempObj {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(value) ^
-      const DeepCollectionEquality().hash(dateTime);
+      const DeepCollectionEquality().hash(time);
 
   @JsonKey(ignore: true)
   @override
@@ -163,8 +162,8 @@ class _$_AirTempObj extends _AirTempObj {
 }
 
 abstract class _AirTempObj extends AirTempObj {
-  const factory _AirTempObj(
-      {UniqueId? id, AirTemp? value, DateTime? dateTime}) = _$_AirTempObj;
+  const factory _AirTempObj({UniqueId? id, AirTemp? value, DateTime? time}) =
+      _$_AirTempObj;
   const _AirTempObj._() : super._();
 
   @override
@@ -172,7 +171,7 @@ abstract class _AirTempObj extends AirTempObj {
   @override
   AirTemp? get value => throw _privateConstructorUsedError;
   @override
-  DateTime? get dateTime => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AirTempObjCopyWith<_AirTempObj> get copyWith =>
@@ -183,11 +182,11 @@ abstract class _AirTempObj extends AirTempObj {
 class _$HumidityObjTearOff {
   const _$HumidityObjTearOff();
 
-  _HumidityObj call({UniqueId? id, Humidity? value, DateTime? dateTime}) {
+  _HumidityObj call({UniqueId? id, Humidity? value, DateTime? time}) {
     return _HumidityObj(
       id: id,
       value: value,
-      dateTime: dateTime,
+      time: time,
     );
   }
 }
@@ -199,7 +198,7 @@ const $HumidityObj = _$HumidityObjTearOff();
 mixin _$HumidityObj {
   UniqueId? get id => throw _privateConstructorUsedError;
   Humidity? get value => throw _privateConstructorUsedError;
-  DateTime? get dateTime => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HumidityObjCopyWith<HumidityObj> get copyWith =>
@@ -211,7 +210,7 @@ abstract class $HumidityObjCopyWith<$Res> {
   factory $HumidityObjCopyWith(
           HumidityObj value, $Res Function(HumidityObj) then) =
       _$HumidityObjCopyWithImpl<$Res>;
-  $Res call({UniqueId? id, Humidity? value, DateTime? dateTime});
+  $Res call({UniqueId? id, Humidity? value, DateTime? time});
 }
 
 /// @nodoc
@@ -226,7 +225,7 @@ class _$HumidityObjCopyWithImpl<$Res> implements $HumidityObjCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
-    Object? dateTime = freezed,
+    Object? time = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -237,9 +236,9 @@ class _$HumidityObjCopyWithImpl<$Res> implements $HumidityObjCopyWith<$Res> {
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as Humidity?,
-      dateTime: dateTime == freezed
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
   }
@@ -252,7 +251,7 @@ abstract class _$HumidityObjCopyWith<$Res>
           _HumidityObj value, $Res Function(_HumidityObj) then) =
       __$HumidityObjCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId? id, Humidity? value, DateTime? dateTime});
+  $Res call({UniqueId? id, Humidity? value, DateTime? time});
 }
 
 /// @nodoc
@@ -269,7 +268,7 @@ class __$HumidityObjCopyWithImpl<$Res> extends _$HumidityObjCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
-    Object? dateTime = freezed,
+    Object? time = freezed,
   }) {
     return _then(_HumidityObj(
       id: id == freezed
@@ -280,9 +279,9 @@ class __$HumidityObjCopyWithImpl<$Res> extends _$HumidityObjCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as Humidity?,
-      dateTime: dateTime == freezed
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
   }
@@ -290,18 +289,18 @@ class __$HumidityObjCopyWithImpl<$Res> extends _$HumidityObjCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_HumidityObj extends _HumidityObj {
-  const _$_HumidityObj({this.id, this.value, this.dateTime}) : super._();
+  const _$_HumidityObj({this.id, this.value, this.time}) : super._();
 
   @override
   final UniqueId? id;
   @override
   final Humidity? value;
   @override
-  final DateTime? dateTime;
+  final DateTime? time;
 
   @override
   String toString() {
-    return 'HumidityObj(id: $id, value: $value, dateTime: $dateTime)';
+    return 'HumidityObj(id: $id, value: $value, time: $time)';
   }
 
   @override
@@ -312,9 +311,8 @@ class _$_HumidityObj extends _HumidityObj {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
-            (identical(other.dateTime, dateTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateTime, dateTime)));
+            (identical(other.time, time) ||
+                const DeepCollectionEquality().equals(other.time, time)));
   }
 
   @override
@@ -322,7 +320,7 @@ class _$_HumidityObj extends _HumidityObj {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(value) ^
-      const DeepCollectionEquality().hash(dateTime);
+      const DeepCollectionEquality().hash(time);
 
   @JsonKey(ignore: true)
   @override
@@ -331,8 +329,8 @@ class _$_HumidityObj extends _HumidityObj {
 }
 
 abstract class _HumidityObj extends HumidityObj {
-  const factory _HumidityObj(
-      {UniqueId? id, Humidity? value, DateTime? dateTime}) = _$_HumidityObj;
+  const factory _HumidityObj({UniqueId? id, Humidity? value, DateTime? time}) =
+      _$_HumidityObj;
   const _HumidityObj._() : super._();
 
   @override
@@ -340,7 +338,7 @@ abstract class _HumidityObj extends HumidityObj {
   @override
   Humidity? get value => throw _privateConstructorUsedError;
   @override
-  DateTime? get dateTime => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$HumidityObjCopyWith<_HumidityObj> get copyWith =>
@@ -351,11 +349,11 @@ abstract class _HumidityObj extends HumidityObj {
 class _$IntensityObjTearOff {
   const _$IntensityObjTearOff();
 
-  _IntensityObj call({UniqueId? id, Intensity? value, DateTime? dateTime}) {
+  _IntensityObj call({UniqueId? id, Intensity? value, DateTime? time}) {
     return _IntensityObj(
       id: id,
       value: value,
-      dateTime: dateTime,
+      time: time,
     );
   }
 }
@@ -367,7 +365,7 @@ const $IntensityObj = _$IntensityObjTearOff();
 mixin _$IntensityObj {
   UniqueId? get id => throw _privateConstructorUsedError;
   Intensity? get value => throw _privateConstructorUsedError;
-  DateTime? get dateTime => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $IntensityObjCopyWith<IntensityObj> get copyWith =>
@@ -379,7 +377,7 @@ abstract class $IntensityObjCopyWith<$Res> {
   factory $IntensityObjCopyWith(
           IntensityObj value, $Res Function(IntensityObj) then) =
       _$IntensityObjCopyWithImpl<$Res>;
-  $Res call({UniqueId? id, Intensity? value, DateTime? dateTime});
+  $Res call({UniqueId? id, Intensity? value, DateTime? time});
 }
 
 /// @nodoc
@@ -394,7 +392,7 @@ class _$IntensityObjCopyWithImpl<$Res> implements $IntensityObjCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
-    Object? dateTime = freezed,
+    Object? time = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -405,9 +403,9 @@ class _$IntensityObjCopyWithImpl<$Res> implements $IntensityObjCopyWith<$Res> {
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as Intensity?,
-      dateTime: dateTime == freezed
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
   }
@@ -420,7 +418,7 @@ abstract class _$IntensityObjCopyWith<$Res>
           _IntensityObj value, $Res Function(_IntensityObj) then) =
       __$IntensityObjCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId? id, Intensity? value, DateTime? dateTime});
+  $Res call({UniqueId? id, Intensity? value, DateTime? time});
 }
 
 /// @nodoc
@@ -437,7 +435,7 @@ class __$IntensityObjCopyWithImpl<$Res> extends _$IntensityObjCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
-    Object? dateTime = freezed,
+    Object? time = freezed,
   }) {
     return _then(_IntensityObj(
       id: id == freezed
@@ -448,9 +446,9 @@ class __$IntensityObjCopyWithImpl<$Res> extends _$IntensityObjCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as Intensity?,
-      dateTime: dateTime == freezed
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
   }
@@ -458,18 +456,18 @@ class __$IntensityObjCopyWithImpl<$Res> extends _$IntensityObjCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_IntensityObj extends _IntensityObj {
-  const _$_IntensityObj({this.id, this.value, this.dateTime}) : super._();
+  const _$_IntensityObj({this.id, this.value, this.time}) : super._();
 
   @override
   final UniqueId? id;
   @override
   final Intensity? value;
   @override
-  final DateTime? dateTime;
+  final DateTime? time;
 
   @override
   String toString() {
-    return 'IntensityObj(id: $id, value: $value, dateTime: $dateTime)';
+    return 'IntensityObj(id: $id, value: $value, time: $time)';
   }
 
   @override
@@ -480,9 +478,8 @@ class _$_IntensityObj extends _IntensityObj {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
-            (identical(other.dateTime, dateTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateTime, dateTime)));
+            (identical(other.time, time) ||
+                const DeepCollectionEquality().equals(other.time, time)));
   }
 
   @override
@@ -490,7 +487,7 @@ class _$_IntensityObj extends _IntensityObj {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(value) ^
-      const DeepCollectionEquality().hash(dateTime);
+      const DeepCollectionEquality().hash(time);
 
   @JsonKey(ignore: true)
   @override
@@ -500,7 +497,7 @@ class _$_IntensityObj extends _IntensityObj {
 
 abstract class _IntensityObj extends IntensityObj {
   const factory _IntensityObj(
-      {UniqueId? id, Intensity? value, DateTime? dateTime}) = _$_IntensityObj;
+      {UniqueId? id, Intensity? value, DateTime? time}) = _$_IntensityObj;
   const _IntensityObj._() : super._();
 
   @override
@@ -508,7 +505,7 @@ abstract class _IntensityObj extends IntensityObj {
   @override
   Intensity? get value => throw _privateConstructorUsedError;
   @override
-  DateTime? get dateTime => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$IntensityObjCopyWith<_IntensityObj> get copyWith =>
@@ -519,11 +516,11 @@ abstract class _IntensityObj extends IntensityObj {
 class _$ObjTempObjTearOff {
   const _$ObjTempObjTearOff();
 
-  _ObjTempObj call({UniqueId? id, ObjTemp? value, DateTime? dateTime}) {
+  _ObjTempObj call({UniqueId? id, ObjTemp? value, DateTime? time}) {
     return _ObjTempObj(
       id: id,
       value: value,
-      dateTime: dateTime,
+      time: time,
     );
   }
 }
@@ -535,7 +532,7 @@ const $ObjTempObj = _$ObjTempObjTearOff();
 mixin _$ObjTempObj {
   UniqueId? get id => throw _privateConstructorUsedError;
   ObjTemp? get value => throw _privateConstructorUsedError;
-  DateTime? get dateTime => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ObjTempObjCopyWith<ObjTempObj> get copyWith =>
@@ -547,7 +544,7 @@ abstract class $ObjTempObjCopyWith<$Res> {
   factory $ObjTempObjCopyWith(
           ObjTempObj value, $Res Function(ObjTempObj) then) =
       _$ObjTempObjCopyWithImpl<$Res>;
-  $Res call({UniqueId? id, ObjTemp? value, DateTime? dateTime});
+  $Res call({UniqueId? id, ObjTemp? value, DateTime? time});
 }
 
 /// @nodoc
@@ -562,7 +559,7 @@ class _$ObjTempObjCopyWithImpl<$Res> implements $ObjTempObjCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
-    Object? dateTime = freezed,
+    Object? time = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -573,9 +570,9 @@ class _$ObjTempObjCopyWithImpl<$Res> implements $ObjTempObjCopyWith<$Res> {
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as ObjTemp?,
-      dateTime: dateTime == freezed
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
   }
@@ -587,7 +584,7 @@ abstract class _$ObjTempObjCopyWith<$Res> implements $ObjTempObjCopyWith<$Res> {
           _ObjTempObj value, $Res Function(_ObjTempObj) then) =
       __$ObjTempObjCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId? id, ObjTemp? value, DateTime? dateTime});
+  $Res call({UniqueId? id, ObjTemp? value, DateTime? time});
 }
 
 /// @nodoc
@@ -604,7 +601,7 @@ class __$ObjTempObjCopyWithImpl<$Res> extends _$ObjTempObjCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
-    Object? dateTime = freezed,
+    Object? time = freezed,
   }) {
     return _then(_ObjTempObj(
       id: id == freezed
@@ -615,9 +612,9 @@ class __$ObjTempObjCopyWithImpl<$Res> extends _$ObjTempObjCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as ObjTemp?,
-      dateTime: dateTime == freezed
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
   }
@@ -625,18 +622,18 @@ class __$ObjTempObjCopyWithImpl<$Res> extends _$ObjTempObjCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_ObjTempObj extends _ObjTempObj {
-  const _$_ObjTempObj({this.id, this.value, this.dateTime}) : super._();
+  const _$_ObjTempObj({this.id, this.value, this.time}) : super._();
 
   @override
   final UniqueId? id;
   @override
   final ObjTemp? value;
   @override
-  final DateTime? dateTime;
+  final DateTime? time;
 
   @override
   String toString() {
-    return 'ObjTempObj(id: $id, value: $value, dateTime: $dateTime)';
+    return 'ObjTempObj(id: $id, value: $value, time: $time)';
   }
 
   @override
@@ -647,9 +644,8 @@ class _$_ObjTempObj extends _ObjTempObj {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
-            (identical(other.dateTime, dateTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateTime, dateTime)));
+            (identical(other.time, time) ||
+                const DeepCollectionEquality().equals(other.time, time)));
   }
 
   @override
@@ -657,7 +653,7 @@ class _$_ObjTempObj extends _ObjTempObj {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(value) ^
-      const DeepCollectionEquality().hash(dateTime);
+      const DeepCollectionEquality().hash(time);
 
   @JsonKey(ignore: true)
   @override
@@ -666,8 +662,8 @@ class _$_ObjTempObj extends _ObjTempObj {
 }
 
 abstract class _ObjTempObj extends ObjTempObj {
-  const factory _ObjTempObj(
-      {UniqueId? id, ObjTemp? value, DateTime? dateTime}) = _$_ObjTempObj;
+  const factory _ObjTempObj({UniqueId? id, ObjTemp? value, DateTime? time}) =
+      _$_ObjTempObj;
   const _ObjTempObj._() : super._();
 
   @override
@@ -675,7 +671,7 @@ abstract class _ObjTempObj extends ObjTempObj {
   @override
   ObjTemp? get value => throw _privateConstructorUsedError;
   @override
-  DateTime? get dateTime => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ObjTempObjCopyWith<_ObjTempObj> get copyWith =>
@@ -686,11 +682,11 @@ abstract class _ObjTempObj extends ObjTempObj {
 class _$PhLevelObjTearOff {
   const _$PhLevelObjTearOff();
 
-  _PhLevelObj call({UniqueId? id, PhLevel? value, DateTime? dateTime}) {
+  _PhLevelObj call({UniqueId? id, PhLevel? value, DateTime? time}) {
     return _PhLevelObj(
       id: id,
       value: value,
-      dateTime: dateTime,
+      time: time,
     );
   }
 }
@@ -702,7 +698,7 @@ const $PhLevelObj = _$PhLevelObjTearOff();
 mixin _$PhLevelObj {
   UniqueId? get id => throw _privateConstructorUsedError;
   PhLevel? get value => throw _privateConstructorUsedError;
-  DateTime? get dateTime => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PhLevelObjCopyWith<PhLevelObj> get copyWith =>
@@ -714,7 +710,7 @@ abstract class $PhLevelObjCopyWith<$Res> {
   factory $PhLevelObjCopyWith(
           PhLevelObj value, $Res Function(PhLevelObj) then) =
       _$PhLevelObjCopyWithImpl<$Res>;
-  $Res call({UniqueId? id, PhLevel? value, DateTime? dateTime});
+  $Res call({UniqueId? id, PhLevel? value, DateTime? time});
 }
 
 /// @nodoc
@@ -729,7 +725,7 @@ class _$PhLevelObjCopyWithImpl<$Res> implements $PhLevelObjCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
-    Object? dateTime = freezed,
+    Object? time = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -740,9 +736,9 @@ class _$PhLevelObjCopyWithImpl<$Res> implements $PhLevelObjCopyWith<$Res> {
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as PhLevel?,
-      dateTime: dateTime == freezed
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
   }
@@ -754,7 +750,7 @@ abstract class _$PhLevelObjCopyWith<$Res> implements $PhLevelObjCopyWith<$Res> {
           _PhLevelObj value, $Res Function(_PhLevelObj) then) =
       __$PhLevelObjCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueId? id, PhLevel? value, DateTime? dateTime});
+  $Res call({UniqueId? id, PhLevel? value, DateTime? time});
 }
 
 /// @nodoc
@@ -771,7 +767,7 @@ class __$PhLevelObjCopyWithImpl<$Res> extends _$PhLevelObjCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
-    Object? dateTime = freezed,
+    Object? time = freezed,
   }) {
     return _then(_PhLevelObj(
       id: id == freezed
@@ -782,9 +778,9 @@ class __$PhLevelObjCopyWithImpl<$Res> extends _$PhLevelObjCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as PhLevel?,
-      dateTime: dateTime == freezed
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
+      time: time == freezed
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
   }
@@ -792,18 +788,18 @@ class __$PhLevelObjCopyWithImpl<$Res> extends _$PhLevelObjCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_PhLevelObj extends _PhLevelObj {
-  const _$_PhLevelObj({this.id, this.value, this.dateTime}) : super._();
+  const _$_PhLevelObj({this.id, this.value, this.time}) : super._();
 
   @override
   final UniqueId? id;
   @override
   final PhLevel? value;
   @override
-  final DateTime? dateTime;
+  final DateTime? time;
 
   @override
   String toString() {
-    return 'PhLevelObj(id: $id, value: $value, dateTime: $dateTime)';
+    return 'PhLevelObj(id: $id, value: $value, time: $time)';
   }
 
   @override
@@ -814,9 +810,8 @@ class _$_PhLevelObj extends _PhLevelObj {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
-            (identical(other.dateTime, dateTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateTime, dateTime)));
+            (identical(other.time, time) ||
+                const DeepCollectionEquality().equals(other.time, time)));
   }
 
   @override
@@ -824,7 +819,7 @@ class _$_PhLevelObj extends _PhLevelObj {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(value) ^
-      const DeepCollectionEquality().hash(dateTime);
+      const DeepCollectionEquality().hash(time);
 
   @JsonKey(ignore: true)
   @override
@@ -833,8 +828,8 @@ class _$_PhLevelObj extends _PhLevelObj {
 }
 
 abstract class _PhLevelObj extends PhLevelObj {
-  const factory _PhLevelObj(
-      {UniqueId? id, PhLevel? value, DateTime? dateTime}) = _$_PhLevelObj;
+  const factory _PhLevelObj({UniqueId? id, PhLevel? value, DateTime? time}) =
+      _$_PhLevelObj;
   const _PhLevelObj._() : super._();
 
   @override
@@ -842,7 +837,7 @@ abstract class _PhLevelObj extends PhLevelObj {
   @override
   PhLevel? get value => throw _privateConstructorUsedError;
   @override
-  DateTime? get dateTime => throw _privateConstructorUsedError;
+  DateTime? get time => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PhLevelObjCopyWith<_PhLevelObj> get copyWith =>

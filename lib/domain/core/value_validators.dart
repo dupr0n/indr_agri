@@ -27,6 +27,6 @@ Either<ValueFailure<double>, double> validateLimit(
   if (input > min && input < max) {
     return Right(input);
   } else {
-    return Left(ValueFailure.shortPassword(failedValue: input));
+    return Left(ValueFailure.invalidValue(failedValue: input));
   }
 }

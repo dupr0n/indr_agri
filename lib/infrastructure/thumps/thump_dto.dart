@@ -6,126 +6,135 @@ import '../../domain/thumps/objects/thump.dart';
 import '../../domain/thumps/value_objects.dart';
 
 part 'thump_dto.freezed.dart';
-part 'thump_dto.g.dart';
 
 const _fallback = {'Error': 'Failed to retrieve doc.data()'};
 
 @freezed
-abstract class AirTempDTO with _$AirTempDTO {
+class AirTempDTO with _$AirTempDTO {
   const AirTempDTO._();
 
   const factory AirTempDTO({
     @required String? id,
     @required double? value,
-    @required DateTime? dateTime,
+    @required DateTime? time,
   }) = _AirTempDTO;
 
-  factory AirTempDTO.fromJson(Map<String, dynamic> json) => _$AirTempDTOFromJson(json);
+  factory AirTempDTO.jsonToDTO(Map<String, dynamic> json) => AirTempDTO(
+        id: json['id'] as String?,
+        value: (json['value'] as num?)?.toDouble(),
+        time: (json['time'] as Timestamp).toDate(),
+      );
 
-  factory AirTempDTO.fromFirestore(DocumentSnapshot doc) {
-    if (doc.data() == null) print('Error: Failed to retrieve doc.data()');
-    return AirTempDTO.fromJson(doc.data() ?? _fallback).copyWith(id: doc.id);
-  }
+  factory AirTempDTO.fromFirestore(DocumentSnapshot doc) =>
+      AirTempDTO.jsonToDTO(doc.data() ?? _fallback).copyWith(id: doc.id);
 
   AirTempObj toDomain() => AirTempObj(
         id: UniqueId.fromUniqueString(id ?? 'Dummy Air Temp ID'),
         value: AirTemp(value ?? -100),
-        dateTime: dateTime,
+        time: time,
       );
 }
 
 @freezed
-abstract class HumidityDTO with _$HumidityDTO {
+class HumidityDTO with _$HumidityDTO {
   const HumidityDTO._();
 
   const factory HumidityDTO({
     @required String? id,
     @required double? value,
-    @required DateTime? dateTime,
+    @required DateTime? time,
   }) = _HumidityDTO;
 
-  factory HumidityDTO.fromJson(Map<String, dynamic> json) => _$HumidityDTOFromJson(json);
+  factory HumidityDTO.jsonToDTO(Map<String, dynamic> json) => HumidityDTO(
+        id: json['id'] as String?,
+        value: (json['value'] as num?)?.toDouble(),
+        time: (json['time'] as Timestamp).toDate(),
+      );
 
-  factory HumidityDTO.fromFirestore(DocumentSnapshot doc) {
-    if (doc.data() == null) print('Error: Failed to retrieve doc.data()');
-    return HumidityDTO.fromJson(doc.data() ?? _fallback).copyWith(id: doc.id);
-  }
+  factory HumidityDTO.fromFirestore(DocumentSnapshot doc) =>
+      HumidityDTO.jsonToDTO(doc.data() ?? _fallback).copyWith(id: doc.id);
 
   HumidityObj toDomain() => HumidityObj(
         id: UniqueId.fromUniqueString(id ?? 'Dummy Humidity ID'),
         value: Humidity(value ?? -1),
-        dateTime: dateTime,
+        time: time,
       );
 }
 
 @freezed
-abstract class IntensityDTO with _$IntensityDTO {
+class IntensityDTO with _$IntensityDTO {
   const IntensityDTO._();
 
   const factory IntensityDTO({
     @required String? id,
     @required double? value,
-    @required DateTime? dateTime,
+    @required DateTime? time,
   }) = _IntensityDTO;
 
-  factory IntensityDTO.fromJson(Map<String, dynamic> json) => _$IntensityDTOFromJson(json);
+  factory IntensityDTO.jsonToDTO(Map<String, dynamic> json) => IntensityDTO(
+        id: json['id'] as String?,
+        value: (json['value'] as num?)?.toDouble(),
+        time: (json['time'] as Timestamp).toDate(),
+      );
 
-  factory IntensityDTO.fromFirestore(DocumentSnapshot doc) {
-    if (doc.data() == null) print('Error: Failed to retrieve doc.data()');
-    return IntensityDTO.fromJson(doc.data() ?? _fallback).copyWith(id: doc.id);
-  }
+  factory IntensityDTO.fromFirestore(DocumentSnapshot doc) =>
+      IntensityDTO.jsonToDTO(doc.data() ?? _fallback).copyWith(id: doc.id);
 
   IntensityObj toDomain() => IntensityObj(
         id: UniqueId.fromUniqueString(id ?? 'Dummy Intensity ID'),
         value: Intensity(value ?? -1),
-        dateTime: dateTime,
+        time: time,
       );
 }
 
 @freezed
-abstract class ObjTempDTO with _$ObjTempDTO {
+class ObjTempDTO with _$ObjTempDTO {
   const ObjTempDTO._();
 
   const factory ObjTempDTO({
     @required String? id,
     @required double? value,
-    @required DateTime? dateTime,
+    @required DateTime? time,
   }) = _ObjTempDTO;
 
-  factory ObjTempDTO.fromJson(Map<String, dynamic> json) => _$ObjTempDTOFromJson(json);
+  factory ObjTempDTO.jsonToDTO(Map<String, dynamic> json) => ObjTempDTO(
+        id: json['id'] as String?,
+        value: (json['value'] as num?)?.toDouble(),
+        time: (json['time'] as Timestamp).toDate(),
+      );
 
-  factory ObjTempDTO.fromFirestore(DocumentSnapshot doc) {
-    if (doc.data() == null) print('Error: Failed to retrieve doc.data()');
-    return ObjTempDTO.fromJson(doc.data() ?? _fallback).copyWith(id: doc.id);
-  }
+  factory ObjTempDTO.fromFirestore(DocumentSnapshot doc) =>
+      ObjTempDTO.jsonToDTO(doc.data() ?? _fallback).copyWith(id: doc.id);
 
   ObjTempObj toDomain() => ObjTempObj(
         id: UniqueId.fromUniqueString(id ?? 'Dummy Obj Temp ID'),
         value: ObjTemp(value ?? 300),
-        dateTime: dateTime,
+        time: time,
       );
 }
 
 @freezed
-abstract class PhLevelDTO with _$PhLevelDTO {
+class PhLevelDTO with _$PhLevelDTO {
   const PhLevelDTO._();
 
   const factory PhLevelDTO({
     @required String? id,
     @required double? value,
-    @required DateTime? dateTime,
+    @required DateTime? time,
   }) = _PhLevelDTO;
 
-  factory PhLevelDTO.fromJson(Map<String, dynamic> json) => _$PhLevelDTOFromJson(json);
+  factory PhLevelDTO.jsonToDTO(Map<String, dynamic> json) => PhLevelDTO(
+        id: json['id'] as String?,
+        value: (json['value'] as num?)?.toDouble(),
+        time: (json['time'] as Timestamp).toDate(),
+      );
 
-  factory PhLevelDTO.fromFirestore(DocumentSnapshot doc) {
-    if (doc.data() == null) print('Error: Failed to retrieve doc.data()');
-    return PhLevelDTO.fromJson(doc.data() ?? _fallback).copyWith(id: doc.id);
-  }
+  factory PhLevelDTO.fromFirestore(DocumentSnapshot doc) =>
+      PhLevelDTO.jsonToDTO(doc.data() ?? _fallback).copyWith(id: doc.id);
 
   PhLevelObj toDomain() => PhLevelObj(
         id: UniqueId.fromUniqueString(id ?? 'Dummy pH Level ID'),
         value: PhLevel(value ?? -1),
-        dateTime: dateTime,
+        time: time,
       );
 }
