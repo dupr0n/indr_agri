@@ -73,7 +73,11 @@ class IntensityDTO with _$IntensityDTO {
 
   factory IntensityDTO.jsonToDTO(Map<String, dynamic> json) => IntensityDTO(
         id: json['id'] as String?,
-        value: (json['value'] as num?)?.toDouble(),
+        value: json['value'] is int
+            ? (json['value'] as int).toDouble()
+            : json['value'] is String
+                ? double.parse(json['value'] as String)
+                : json['value'] as double,
         time: (json['time'] as Timestamp).toDate(),
       );
 
@@ -125,7 +129,7 @@ class PhLevelDTO with _$PhLevelDTO {
 
   factory PhLevelDTO.jsonToDTO(Map<String, dynamic> json) => PhLevelDTO(
         id: json['id'] as String?,
-        value: (json['value'] as num?)?.toDouble(),
+        value: double.parse(json['value'] as String),
         time: (json['time'] as Timestamp).toDate(),
       );
 

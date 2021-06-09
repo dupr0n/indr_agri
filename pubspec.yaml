@@ -45,7 +45,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/leaf.png
-    - assets/images/indr_agri.jpg
   fonts:
     - family: DancingScript
       fonts:
@@ -59,6 +58,6 @@ flutter:
         - asset: assets/fonts/Roboto-ThinItalic.ttf
 
 flutter_icons:
-  image_path: 'assets/images/leaf.png'
+  image_path: "assets/images/leaf.png"
   android: true
   ios: true

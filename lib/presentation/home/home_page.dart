@@ -22,6 +22,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    var range = DateTimeRange(
+      start: DateTime.now().subtract(const Duration(days: 10)),
+      end: DateTime.now(),
+    );
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -56,15 +60,24 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
-          BlocListener<AirTempWatcherBloc, AirTempWatcherState>(
-            listener: (context, state) => state.maybeMap(orElse: () {}),
-          ),
         ],
         child: Scaffold(
           resizeToAvoidBottomInset: true,
           floatingActionButton: FloatingActionButton(
             backgroundColor: Colors.transparent,
-            onPressed: () => _showLeaf(context),
+            onPressed: () async {
+              final changedRange = await showDateRangePicker(
+                    context: context,
+                    firstDate: DateTime.now().subtract(const Duration(days: 365)),
+                    lastDate: DateTime.now(),
+                  ) ??
+                  range;
+              // print(changedRange);
+              setState(() {
+                // print('Got here');
+                range = changedRange;
+              });
+            },
             child: Image.asset(
               'assets/images/leaf.png',
               excludeFromSemantics: true,
@@ -74,30 +87,30 @@ class _HomePageState extends State<HomePage> {
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: const CustomBottomAppBar(),
-          body: const HomeBodyWidget(),
+          body: HomeBodyWidget(range: range),
         ),
       ),
     );
   }
 }
 
-Future<void> _showLeaf(BuildContext ctx) async {
-  await showDialog(
-    barrierColor: const Color(0xFF2E2E2E),
-    barrierDismissible: true,
-    context: ctx,
-    builder: (ctx) => Column(
-      children: [
-        const SizedBox(height: 100),
-        SizedBox(
-          width: double.infinity,
-          child: Image.asset(
-            'assets/images/leaf.png',
-            width: 200,
-            height: 200,
-          ),
-        ),
-      ],
-    ),
-  );
-}
+// Future<void> _showLeaf(BuildContext ctx) async {
+//   await showDialog(
+//     barrierColor: const Color(0xFF2E2E2E),
+//     barrierDismissible: true,
+//     context: ctx,
+//     builder: (ctx) => Column(
+//       children: [
+//         const SizedBox(height: 100),
+//         SizedBox(
+//           width: double.infinity,
+//           child: Image.asset(
+//             'assets/images/leaf.png',
+//             width: 200,
+//             height: 200,
+//           ),
+//         ),
+//       ],
+//     ),
+//   );
+// }

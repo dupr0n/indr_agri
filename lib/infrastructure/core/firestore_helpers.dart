@@ -6,4 +6,5 @@ extension FirestoreX on FirebaseFirestore {
   CollectionReference get intensityCollection => collection('Intensity');
   CollectionReference get objTempCollection => collection('ObjectTemperature');
   CollectionReference get pHLevelCollection => collection('PhLevel');
+  CollectionReference get limitsCollection => collection('Limits');
 }
